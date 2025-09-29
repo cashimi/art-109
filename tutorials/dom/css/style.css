@@ -31,6 +31,9 @@ html {
      font-size: 1.6rem;
     /* font-size 1.6rem is now the same as 16px */
     line-height: 1.6;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: black;
+    color: white;
  }
 
  header {
@@ -40,10 +43,31 @@ html {
  }
 
  main {
-    max-width: 800px;
-    margin: 50px auto;
+
  }
 
- p {
-    margin-top: 20px;
+ .image-div {
+    display: inline-block;
+ }
+
+ .hidden {
+    visibility: hidden;
+ }
+
+ #image-0 {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+ }
+
+ #image-1 {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+ }
+
+ #image-2 {
+    position: fixed;
+    top: 110px;
+    left: 660px;
  }
