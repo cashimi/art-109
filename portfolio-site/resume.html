@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Resume | Caitlyn Vu | SJSU MIS Major, DMA Minor</title>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
-  <body>
+  <body class="resume">
+    <a class="btn download-link" href="#">Download PDF</a>
     <!-- //  INTRO  // -->
     <header>
-      <!-- Start content edits below this line. -->
-      <h1>Caitlyn Vu</h1>
-      <h2>SJSU MIS Major, DMA Minor</h2>
+      <div class="content-wrapper">
+        <!-- Start content edits below this line. -->
+        <h1>Caitlyn Vu</h1>
+        <h2>SJSU MIS Major, DMA Minor</h2>
+      </div>
 
       <!-- End content edits here. -->
     </header>
 
-    <main>
+    <main class="content-wrapper">
       <!-- //  PROFILE  // -->
-      <section>
+      <section class="resume-section">
         <!-- Start content edits below this line. -->
         <h2>Profile</h2>
         <p>Add your resume summary/profile here. Add more paragraphs or links as needed.</p>
@@ -27,59 +31,75 @@
       </section>
 
       <!-- //  PROJECTS  // -->
-      <section>
+      <section class="resume-section">
         <!-- Start content edits below this line. -->
         <h2>Projects</h2>
-        <p>Optional paragraph for the Projects summary. Delete if not being used.</p>
 
         <!-- To add more items, copy this whole <section></section> block-->
-        <section>
-          <img src="" srcset="" alt="description of image" width="" height="">
-          <h3>Project Name</h3>
-          <p>Summary or description of the project and/or your role in it. Add as many paragraphs as you need.</p>
+        <section class="project-item">
+          <img src="images/art74-portfolio-thumbnail-500.png" srcset="images/art74-portfolio-thumbnail-1000.png 2x" alt="Art 74 Portfolio Thumbnail" width="" height="">
+          <h3>Art 74 Portfolio</h3>
+          <p>This is a portfolio I created in my second year for my minor. Some of the works include usage of Photoshop, 3D printing, p5.js, and HTML. The website itself is hand coded with HTML and Bootstrap.</p>
           <!-- link to project -->
-          <a href="#" target="_blank">Link</a>
-          <!-- additional links, e.g. newsletter -->
-          <a href="#" target="_blank">Another link</a>
+          <a class="btn" href="https://cashimi.github.io/" target="_blank">Link</a>
         </section>
         
         <!-- End content edits here. -->
       </section>
 
       <!-- //  WORK EXPERIENCE  // -->
-      <section>
+      <section class="resume-section">
         <!-- Start content edits below this line.  -->
         <h2>Work Experience</h2>
-        <p>Optional paragraph for work experience summary. Not a part of the job details. Delete if not being used.</p>
+        <p>Below are previous work experiences I had. </p>
 
         <!-- To add more items, copy this whole <section></section> block -->
-        <section>
-          <h3>Job title</h3>
-          <p>Company Name</p>
-          <p>Date at job</p>
-          <p>Job summary goes here. Add as many paragraphs as you need.</p>
-          <p>Optional list:</p>
-          <ul>
-            <li>Delete this list if you don't need it.</li>
-            <li>Created...</li>
-            <li>Lead...</li>
-            <li>Responsible for...</li>
-          </ul>
+        <section class="work-item">
+          <div class="work-details">
+            <h3>Member Service Representative</h3>
+            <p>American Swim Academy</p>
+            <p>November 2023 - March 2025</p>
+          </div>
+          <div class="work-summary">
+            <p>As a Member Service Representative, my main purpose is to provide customer service to our memebers. The tasks ranges from assisting with payment to following up on their swimmer's progression in their classes.</p>
+            <ul>
+              <li>Increased customer retention & revenue by conducting 5-7 targeted revenue calls & gathered customer feedback.</li>
+              <li>Interacted with high volume of parents to assist queries on swimmers' classes, enrollment, & payment. Guide new members around facility while explaining swim school’s system & policy.</li>
+              <li>Provided L1 support & resolved 90% of concerns through active listening & professional conflict resolution.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="work-item">
+          <div class="work-details">
+            <h3>Deck Manager</h3>
+            <p>American Swim Academy</p>
+            <p>March 2023 - March 2025</p>
+          </div>
+          <div class="work-summary">
+            <p>As a Deck Manager, my main purpose is to ensure the safety of our staff and swimmers. The tasks ranges from being hands on to improve swimmer's strokes to evacuting the pool in cases of emergency.</p>
+            <ul>
+              <li>Communicated with parents on swimmers' class to update 1-2 progressions within session & what needs to becompleted for next milestone. Provided L2 support by answering questions with swimming & simple terms for better understanding.</li>
+              <li>Evaluated 4-5 classes at a time & communicated 2-3 feedback statements to both instructor & swimmers.</li>
+              <li>Led at least 18 swimmers & 9 instructors when an emergency situation occurs during class. Create new lane assignments for swimmers/instructors to continue lessons.</li>
+            </ul>
+          </div>
         </section>
 
         <!-- End content edits here. -->
       </section>
 
       <!-- //  EDUCATION & CERTIFICATIONS  // -->
-      <section>
+      <section class="resume-section">
         <!-- Start content edits below this line.  -->
         <h2>Education</h2>
 
         <!-- To add more items, copy this whole <section></section> block -->
         <section>
-          <h3>School name - City</h3>
-          <p>Designation received or program name, year attended</p>
-          <p>Summary or accomplishments.</p>
+          <h3>San Jose State University - San Jose</h3>
+          <p>B.S., Business Administration: Management Information Systems, Minor in Digital Media Arts </p>
+          <p>Anticipated Gradiation Date: May 2026</p>
+          <p>Dean’s Scholar: Fall 2022 - Fall 2024</p>
         </section>
 
         <!-- End content edits here. -->
@@ -89,24 +109,15 @@
     <!-- //  FOOTER INFO, SOCIAL MEDIA  // -->
     <footer>
       <!-- Start content edits below this line. -->
-      <p>© 2023 by Your Name | <a href="mailto:email@example.com">email@example.com</a></p>
+      <p>© 2025 by Caitlyn Vu | <a href="mailto:email@example.com">caitlyn.vu@sjsu.edu</a></p>
 
       <!-- Add or remove any networks. -->
-      <ul>
+      <ul class="socials">
         <li>
-          <a href="#" target="_blank">Twitter</a>
+          <a href="https://www.linkedin.com/in/caitlynvu/" target="_blank"><img src="images/icon-logo-linkedin.png" alt="My LinkedIn Account"></a>
         </li>
         <li>
-          <a href="#" target="_blank">LinkedIn</a>
-        </li>
-        <li>
-          <a href="#" target="_blank">Facebook</a>
-        </li>
-        <li>
-          <a href="#" target="_blank">YouTube</a>
-        </li>
-        <li>
-          <a href="#" target="_blank">Instagram</a>
+          <a href="https://www.youtube.com/@caitlynvu" target="_blank"><img src="images/icon-logo-youtube.png" alt="My Youtube Account"></a>
         </li>
       </ul>
       
