@@ -1,0 +1,244 @@
+html {
+box-sizing: border-box;
+font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+height: 100%;
+}
+
+
+body {
+    margin: 0;
+    background-image: url('../assets/grunge.jpg');
+    background-size: cover;       /* makes it fill the page */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+    background-attachment: fixed; /* keeps it fixed while scrolling */
+    height: 100vh;                /* ensures it covers the full screen */
+    color: white;                 /* text color for visibility */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    font-size: 10rem;
+    margin: 5px 40px;
+    display: inline-block; 
+    animation: skew .1s infinite alternate; /* Adjust the duration here */
+}
+
+@keyframes skew {
+    0% {transform: skew(-2deg, -1deg);}
+    100% {transform: skew(1deg, 2deg);}
+}
+
+h2 {
+    font-size: 5rem; /* Use relative units for scalability */
+    margin: 25px 40px;
+}
+
+p {
+    font-size: 2rem; /* Use relative units for scalability */
+    margin: 2%;
+}
+ul {
+    list-style-type: none; /* Removes default bullet points */
+}
+ul li {
+    font-size: 2.3rem; /* Use relative units for list items */
+ 
+    margin: 15px 10px;
+    text-align: left;
+}
+
+.image-div {
+    display: flex;
+    width: 50%;
+    align-items: center;
+ }
+
+.image-div img {
+    width: 100%; /* Makes the image scale to the width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 100%; /* Ensures it doesn't exceed its container's width */
+}
+
+audio {
+    margin: 5% 0;
+    width: 100%; /* Makes the audio player scale to the width of its container */
+    max-width: 400px; /* Sets a maximum width for larger screens */
+}
+
+/*--------------------------- DIFF SCREEN SIZE ---------------------------*/
+@media (max-width: 1024px) {
+    .image-div img {
+        width: 80%; /* Adjust width for medium screens */
+    }
+}
+@media (max-width: 768px) {
+    .image-div img {
+        width: 60%; /* Adjust width for smaller screens */
+    }
+    audio {
+        max-width: 300px; /* Adjusts the maximum width for smaller screens */
+    }
+}
+@media (max-width: 480px) {
+    .image-div img {
+        width: 100%; /* Full width for very small screens */
+    }
+    audio {
+        max-width: 100%; /* Full width for very small screens */
+    }
+}
+
+/*--------------------------- MAIN CONTAINER ---------------------------*/
+.container {
+    display: flex;               /* puts children side by side */
+    justify-content: left;     /* centers them horizontally */
+    align-items: center;         /* aligns them vertically (optional) */
+    height: 100vh;               /* full height of screen */
+    margin: auto 10vw;
+}
+
+/*--------------------------- BACKGROUND BOXES ---------------------------*/
+.leftrect {
+    background-color: rgb(22, 32, 40);
+    width: 25%;
+    height: 100vh;
+    padding: 0 10px;
+}
+.rightrect {
+    background-color: rgb(28, 32, 34);
+    background-image: url('../assets/stars.jpg');
+    background-size: cover;       /* makes it fill the page */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+    width: 75%;
+    height: 100vh;
+}
+
+.content-row {
+    display: flex; 
+    flex-direction: row; 
+    align-items: flex-start; 
+    margin: 2% 5%; 
+}
+
+.content-row div {
+    flex: 1; 
+}
+
+.content-row ul {
+    list-style-type: none; 
+}
+
+.content-row ul li {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.content-row img {
+    flex: 1; 
+    max-width: 45%; 
+    height: auto; 
+}
+
+/*--------------------------- POPUPS ---------------------------*/
+.popup-square { /*personality*/
+    display: none; 
+    position: fixed; 
+    top: 53%; 
+    left: 69%; 
+    transform: translate(-50%, -50%); 
+    width: 270px; 
+    height: 140px; 
+    background-color: rgba(77, 82, 87, 0.9); 
+    color: white; 
+    padding: 20px; 
+    text-align: center; 
+    z-index: 1000; 
+}
+
+.popup-square2 {/*job*/
+    display: none; 
+    position: fixed; 
+    top: 73%; /* Center vertically */
+    left: 30%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for true centering */
+    width: 270px; /* Width of the square */
+    height: 175px; /* Height of the square */
+    background-color: rgba(77, 82, 87, 0.9);
+    color: white;
+    padding: 20px; 
+    text-align: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.popup-square3 {/*ad*/
+    display: none; 
+    position: fixed; 
+    top: 24%; /* Center vertically */
+    left: 80%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for true centering */
+    width: 270px; /* Width of the square */
+    height: 165px; /* Height of the square */
+    background-color: rgba(169, 20, 20, 0.9);
+    color: white;
+    padding: 20px; 
+    text-align: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.popup-square4 {/*67*/
+    display: none; 
+    position: fixed; 
+    top: 14%; /* Center vertically */
+    left: 20%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for true centering */
+    width: 270px; /* Width of the square */
+    height: 110px; /* Height of the square */
+    background-color: rgba(169, 20, 20, 0.9);
+    color: white;
+    padding: 20px; 
+    text-align: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.popup-square5 {/*explode*/
+    display: none; 
+    position: fixed; 
+    top: 35%; /* Center vertically */
+    left: 35%; /* Center horizontally */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/*--------------------------- TEXT BANNER ---------------------------*/
+.banner {
+    overflow: hidden;
+    white-space: nowrap;
+    background: rgb(0, 0, 0);
+    border: 1px dashed rgb(255, 255, 255);
+    font-style: italic;
+}
+
+.banner p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+    0%   {transform: translateX(0%);}
+    100% {transform: translateX(-100%);}
+}
