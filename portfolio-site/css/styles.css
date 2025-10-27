@@ -38,7 +38,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #204b2a;
     /* Green background */
     color: #fff;
 }
@@ -72,7 +72,7 @@ body {
 .nav-links a.active {
     color: #e0e0e0;
     /* Lighter color for active/hover */
-    background-color: #1c7430;
+    background-color: #d574ca;
     /* Darker green background on hover */
     border-radius: 4px;
     /* Optional: rounded corners */
