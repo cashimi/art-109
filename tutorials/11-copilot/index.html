@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tut 11: Github Copilot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span class="logo-text">Caitlyn Vu - Art 109</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Docs</a>
+      <a href="#">Examples</a>
+      <a href="#">Pricing</a>
+      <button class="btn primary-btn">Get Started</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Hi Professor!</h1>
+        <p>
+          Sorry I've been so behind my work. It's unfortunate that I couldn't catch up sooner. My "Final Midpoint" checkpoint is also going to be turned in late.... <br><br>I know this tut was optional but I wanted to explore Copilot since I've been meaning to explore "vibecoding".
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary-btn">Start your free trial</button>
+          <button class="btn secondary-btn">View on GitHub</button>
+        </div>
+      </div>
+
+      <div class="hero-preview">
+        <div class="editor-window">
+          <div class="editor-top">
+            <div class="traffic-lights">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="editor-title">main.js</span>
+          </div>
+          <div class="editor-body">
+            <pre><code><span class="token-keyword">function</span> <span class="token-fn">calculateSum</span>(numbers) {
+  <span class="token-keyword">return</span> numbers.reduce((total, value) =&gt; total + value, 0);
+}
+
+<span class="token-comment">// AI suggestion</span>
+<span class="token-keyword">const</span> result = calculateSum([1, 2, 3, 4, 5]);
+console.log(result);</code></pre>
+          </div>
+          <div class="ai-panel">
+            <div class="ai-header">
+              <span class="ai-dot"></span>
+              <span class="ai-title">AI Suggestion</span>
+            </div>
+            <p>
+              My name is Jeff Bezos and I want to rob you of your money.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Caitlyn Vu · Thank you Professor Lark!</p>
+  </footer>
+</body>
+</html>
