@@ -1,0 +1,169 @@
+/* html reset*/
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*set default to 10px*/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html, body {
+    height: 100%;
+}
+
+/* desktop background around the game window */
+body {
+  background: #7c0a0a;
+  /* background-image: url('assets/tetris.gif'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111;
+}
+
+/* main "window" */
+main {
+  margin: 24px auto;
+  max-width: 960px;
+}
+
+/* header bar like an old app title bar */
+header {
+  max-width: 960px;
+  margin: 0 auto 8px auto;
+  background: #000080;
+  color: #fff;
+  border: 2px solid #000000;
+}
+header h1 {
+  margin: 4px 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+}
+
+/* SECTION: Minesweeper-style panel */
+.section {
+  background: #c0c0c0;              /* classic Windows grey */
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff #808080 #808080 #ffffff; /* raised frame */
+  border-radius: 2px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+/* inner headings */
+.section h2,
+.section h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+/* BOX: individual tiles / cells */
+.box {
+  background: #d4d0c8;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff #808080 #808080 #ffffff; /* bevel like Minesweeper cell */
+  padding: 6px;
+  border-radius: 2px;
+  text-align: center;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* fake Minesweeper tiles */
+.ms-tile {
+  cursor: pointer;
+  user-select: none;
+  min-height: 32px;
+  height: 32px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* unrevealed: standard raised look (already from .box) */
+/* revealed: flat, slightly darker, inset border */
+.ms-tile.revealed {
+  background: #c0c0c0;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+/* optional hover for unrevealed tiles */
+.ms-tile:not(.revealed):hover {
+  background: #e4e0d8;
+}
+
+/* nested panels a bit darker, like embedded boards */
+.nested-section {
+  background: #b8b8b8;
+  border-color: #808080 #ffffff #ffffff #808080; /* inverted bevel */
+}
+
+/* avatar/game boxes: act like special panels but keep same tile frame */
+#avatar-box,
+#cookie-game-box {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background: #bdbdbd;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* scroll area for many audio tracks */
+.audio-library-scroll {
+  max-height: 150px;   /* visible area; adjust to taste */
+  overflow-y: auto;    /* scroll vertically for more tracks */
+  padding-right: 4px;  /* small space for scrollbar */
+}
+
+#audio-library {
+  max-width: 50rem;  /* or 50rem, 80%, etc. */
+  width: 100%;
+}
+
+/* make audio boxes left-aligned but keep tile look */
+#audio-library .box {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* footer styled like status bar */
+footer {
+  max-width: 960px;
+  margin: 8px auto 0 auto;
+}
+footer .container {
+  background: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 4px 8px;
+}
+footer p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* keep Bootstrap container but remove extra background */
+.container {
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* optional: subtle hover on tiles */
+.box:hover {
+  background: #e0ded6;
+}
+
+/* keep everything else as-is */
+/* ...no changes below this line... */

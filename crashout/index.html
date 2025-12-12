@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fake Minesweeper</title>
+  <link rel="stylesheet" href="style.css" />
+    <!-- p5.js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
+</head>
+<body>
+  <div class="game-wrapper">
+    <div class="header">
+      <div class="title">Fake Minesweeper</div>
+      <div class="status">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span>Safe Mode</span>
+        </div>
+        <div class="status-pill">
+          💣 0 bombs
+        </div>
+      </div>
+    </div>
+
+    <p class="subtitle">
+      Click any square to "scan" it and reveal the hidden note. Some squares will open a special message.
+    </p>
+
+    <div class="board" id="board">
+      <!-- Row 1 -->
+      <button class="cell cell-hidden hidden"
+      data-text="⭐"
+      data-type="reward"
+      data-popup="true"
+      data-img="newb.png">
+    </button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Tip: Take breaks."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="3"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"
+        data-popup="true"
+        data-popup-title="Secret Bonus"
+        data-popup-message="Nice find. Little wins add up—keep clicking, keep exploring."></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="!"
+        data-type="warning"
+        data-popup="true"
+        data-popup-title="Caution"
+        data-popup-message="Not every tile in life is a bomb, but some definitely ask for attention."></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="1"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: Hydrate."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="🎁"
+        data-type="reward"
+        data-popup="true"
+        data-popup-title="You Unlocked a Gift"
+        data-popup-message="Today’s gift: permission to be 1% better, not perfect."></button>
+
+      <!-- Row 2 -->
+      <button class="cell cell-hidden hidden"
+        data-text="2"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="👀"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Hint: Ask questions."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="5"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="!"
+        data-type="warning"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Idea: Write it down."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="4"
+        data-type="clue"></button>
+
+      <!-- Row 3 -->
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"
+        data-popup="true"
+        data-popup-title="Focus Tile"
+        data-popup-message="Pick one thing worth doing today and protect it from distractions."></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="1"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="💭"
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="3"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: Stretch."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="2"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="?"
+        data-type="clue"
+        data-popup="true"
+        data-popup-title="Curiosity Wins"
+        data-popup-message="You clicked the curious tile. Keep that instinct—it’s how you level up."></button>
+
+      <!-- Row 4 -->
+      <button class="cell cell-hidden hidden"
+        data-text="Tip: Breathe deep."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="!"
+        data-type="warning"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="2"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="🎯"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: One step."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="7"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <!-- Row 5 -->
+      <button class="cell cell-hidden hidden"
+        data-text="?"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"
+        data-popup="true"
+        data-popup-title="Checkpoint"
+        data-popup-message="Pause and notice: you’re actually doing things. That matters more than you give it credit for."></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="2"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: Small wins."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="3"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="!"
+        data-type="warning"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Hint: Ask for help."
+        data-type="note"></button>
+
+      <!-- Row 6 -->
+      <button class="cell cell-hidden hidden"
+        data-text="4"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="💡"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: Move your body."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="2"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="!"
+        data-type="warning"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="3"
+        data-type="clue"></button>
+
+      <!-- Row 7 -->
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: You’re learning."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="2"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="🎁"
+        data-type="reward"
+        data-popup="true"
+        data-popup-title="Easter Egg"
+        data-popup-message="If you can find this tile, you can find your next opportunity too. Keep exploring."></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="?"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: Log progress."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="1"
+        data-type="clue"></button>
+
+      <!-- Row 8 -->
+      <button class="cell cell-hidden hidden"
+        data-text="🔥"
+        data-type="warning"
+        data-popup="true"
+        data-popup-title="Hot Zone"
+        data-popup-message="Something feels high-stakes? Break it into safe, tiny steps. Defuse the pressure."></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="3"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: Enjoy this."
+        data-type="note"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="4"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="⭐"
+        data-type="reward"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="?"
+        data-type="clue"></button>
+
+      <button class="cell cell-hidden hidden"
+        data-text="Note: You got this."
+        data-type="note"></button>
+    </div>
+
+    <div class="footer">
+      <span><span class="footer-key"></span> Regular tiles reveal notes or numbers.</span>
+      <span><span class="footer-key popup"></span> Red glow = may trigger a popup message.</span>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modalCloseSecondary">Close</button>
+        <button class="btn btn-primary" id="modalClosePrimary">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Desktop Style Minesweeper Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/addons/p5.sound.min.js"></script>
+
+  <!-- Three.js import map for avatar.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <!-- Avatar script (ES module) -->
+  <script type="module" src="js/avatar.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>Desktop Minesweeper Playground</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="desktop-window">
+
+      <!-- MAIN 2-COLUMN LAYOUT -->
+      <section class="section" aria-label="Main two-column layout">
+        <div class="two-col">
+          <!-- LEFT COLUMN -->
+          <article class="column section-inner">
+            <h2>Left Column – Avatar</h2>
+
+            <div class="row-spacer">
+              <!-- Avatar host. Moved into a popup window when triggered -->
+              <div class="box" id="avatar-box"></div>
+            </div>
+          </article>
+
+          <!-- RIGHT COLUMN -->
+          <article class="column section-inner">
+            <h2>Right Column – Cookie Game</h2>
+
+            <div class="row-spacer">
+              <!-- Cookie game host. Moved into a popup window when triggered -->
+              <div class="box" id="cookie-game-box"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- FAKE MINESWEEPER GAME SECTION -->
+      <section class="section" aria-labelledby="minesweeper-heading">
+        <h2 id="minesweeper-heading">Fake Minesweeper Game</h2>
+        <p class="section-text">
+          Click a tile to reveal a number, an emoji, or a secret window.
+        </p>
+
+        <div id="fake-minesweeper" class="ms-grid">
+          <!-- 5×5 grid of tiles -->
+
+          <!-- Row 1 -->
+          <!-- This tile opens the AVATAR window -->
+          <div
+            class="box ms-tile"
+            data-content="🧍"
+            data-action="show-avatar"
+          ></div>
+          <div class="box ms-tile" data-content="💣"></div>
+          <div class="box ms-tile" data-content="2"></div>
+          <div class="box ms-tile" data-content="✨"></div>
+          <div class="box ms-tile" data-content="3"></div>
+
+          <!-- Row 2 -->
+          <div class="box ms-tile" data-content="😊"></div>
+          <div class="box ms-tile" data-content="2"></div>
+          <div class="box ms-tile" data-content="💣"></div>
+          <div class="box ms-tile" data-content="1"></div>
+          <div class="box ms-tile" data-content="⭐"></div>
+
+          <!-- Row 3 -->
+          <div class="box ms-tile" data-content="1"></div>
+          <div class="box ms-tile" data-content="3"></div>
+
+          <!-- This tile opens the AUDIO window and plays audio -->
+          <div
+            class="box ms-tile"
+            data-content="🎵"
+            data-action="play-audio"
+          ></div>
+
+          <div class="box ms-tile" data-content="0"></div>
+          <div class="box ms-tile" data-content="💣"></div>
+
+          <!-- Row 4 -->
+          <div class="box ms-tile" data-content="2"></div>
+
+          <!-- This tile opens the COOKIE GAME window -->
+          <div
+            class="box ms-tile"
+            data-content="🎮"
+            data-action="show-sketch"
+          ></div>
+
+          <div class="box ms-tile" data-content="1"></div>
+          <div class="box ms-tile" data-content="💎"></div>
+          <div class="box ms-tile" data-content="4"></div>
+
+          <!-- Row 5 -->
+          <div class="box ms-tile" data-content="💣"></div>
+          <div class="box ms-tile" data-content="1"></div>
+          <div class="box ms-tile" data-content="😎"></div>
+          <div class="box ms-tile" data-content="2"></div>
+          <div class="box ms-tile" data-content="🏆"></div>
+        </div>
+      </section>
+
+      <!-- SECTION WITH NESTED SECTIONS -->
+      <section class="section" aria-labelledby="nested-sections-heading">
+        <h2 id="nested-sections-heading">Section With Nested Sections</h2>
+
+        <div class="two-col nested-wrapper">
+          <article class="column nested-section">
+            <h3>Nested Section 1</h3>
+            <div class="nested-row">
+              <div class="box">N1 Box 1</div>
+              <div class="box">N1 Box 2</div>
+              <div class="box">N1 Box 3</div>
+            </div>
+          </article>
+
+          <article class="column nested-section">
+            <h3>Nested Section 2</h3>
+            <div class="nested-row">
+              <div class="box">N2 Box 1</div>
+              <div class="box">N2 Box 2</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- AUDIO LIBRARY SECTION -->
+      <section
+        id="audio-library"
+        class="section"
+        aria-labelledby="audio-library-heading"
+      >
+        <h2 id="audio-library-heading">Audio Library</h2>
+        <p class="section-text">
+          Browse and play different sounds used in this project.
+        </p>
+
+        <div class="audio-library-scroll">
+          <!-- Track 1 -->
+          <div class="box audio-box">
+            <h3 class="audio-title">kawaii</h3>
+            <p class="audio-meta">caramelldansen.mp3</p>
+            <audio controls class="audio-player">
+              <source src="assets/Caramelldansen.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+
+          <!-- Track 2 -->
+          <div class="box audio-box">
+            <h3 class="audio-title">hype</h3>
+            <p class="audio-meta">elektronomia.mp3</p>
+            <audio controls class="audio-player">
+              <source src="assets/elektronomia.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+
+          <!-- Track 3 -->
+          <div class="box audio-box">
+            <h3 class="audio-title">ponder</h3>
+            <p class="audio-meta">stal.mp3</p>
+            <audio controls class="audio-player">
+              <source src="assets/stal.mp3" type="audio/wav" />
+            </audio>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2024 Desktop Minesweeper Demo</p>
+    </div>
+  </footer>
+
+  <!-- Cookie clicker sketch -->
+  <script src="js/sketch.js"></script>
+  <!-- Main behavior (Minesweeper + windows) -->
+  <script src="js/main.js"></script>
+</body>
+</html>

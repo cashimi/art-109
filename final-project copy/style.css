@@ -1,0 +1,274 @@
+/* ==== RESET ==== */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==== BODY / BACKGROUND ==== */
+body {
+  background: #7c0a0a;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111;
+}
+
+/* ==== HEADER ==== */
+header {
+  max-width: 960px;
+  margin: 16px auto 8px auto;
+  background: #000080;
+  color: #fff;
+  border: 2px solid #000000;
+}
+.header-inner {
+  padding: 4px 8px;
+}
+header h1 {
+  margin: 4px 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* ==== MAIN WINDOW FRAME ==== */
+main {
+  max-width: 960px;
+  margin: 0 auto 16px auto;
+}
+.desktop-window {
+  background: #008080;
+  padding: 6px;
+  border: 2px solid #000000;
+}
+
+/* ==== SECTION PANELS ==== */
+.section {
+  background: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff #808080 #808080 #ffffff; /* raised frame */
+  border-radius: 2px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.section h2,
+.section h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.section-text {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+}
+
+/* ==== TWO-COLUMN LAYOUT ==== */
+.two-col {
+  display: flex;
+  gap: 12px;
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
+}
+
+.section-inner {
+  background: #c0c0c0;
+  padding: 4px 0;
+}
+
+.row-spacer {
+  margin-top: 8px;
+}
+
+/* ==== BOXES ==== */
+.box {
+  background: #d4d0c8;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 6px;
+  border-radius: 2px;
+  text-align: center;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* optional hover on any box */
+.box:hover {
+  background: #e0ded6;
+}
+
+/* ==== MINESWEEPER GRID ==== */
+.ms-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+}
+
+/* Minesweeper tiles: square, centered content */
+.ms-tile {
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 0;
+
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* revealed: flat, slightly darker, inset border */
+.ms-tile.revealed {
+  background: #c0c0c0;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+/* unrevealed hover */
+.ms-tile:not(.revealed):hover {
+  background: #e4e0d8;
+}
+
+/* ==== NESTED SECTIONS ==== */
+.nested-wrapper {
+  gap: 12px;
+}
+
+.nested-section {
+  background: #b8b8b8;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 8px;
+}
+
+.nested-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.nested-row .box {
+  flex: 1;
+  min-width: 80px;
+}
+
+/* ==== AVATAR / COOKIE BOXES (hosts for canvases) ==== */
+#avatar-box,
+#cookie-game-box {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background: #bdbdbd;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* ==== AUDIO LIBRARY ==== */
+.audio-library-scroll {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.audio-box {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.audio-title {
+  margin: 0 0 2px 0;
+  font-size: 1.4rem;
+}
+
+.audio-meta {
+  margin: 0 0 4px 0;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.audio-player {
+  width: 100%;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  max-width: 960px;
+  margin: 0 auto 16px auto;
+}
+.footer-inner {
+  background: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 4px 8px;
+}
+footer p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* ==== DESKTOP-LIKE APP WINDOWS ==== */
+.app-window {
+  position: absolute;
+  background: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  min-width: 260px;
+  max-width: 420px;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.app-window-header {
+  background: #000080;
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: move;
+}
+
+.app-window-title {
+  flex: 1;
+}
+
+.app-window-body {
+  padding: 8px;
+}
+
+/* make canvas-heavy content fill nicely inside windows */
+.app-window-body #avatar-box,
+.app-window-body #cookie-game-box {
+  height: 280px;
+}
