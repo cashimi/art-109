@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>sensory dream</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/addons/p5.sound.min.js"></script>
+
+  <!-- Three.js import map for avatar.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/avatar.js"></script>
+</head>
+
+<body>
+  <header>
+    <center><div>
+      <h1><i>sensory nightmare?</i></h1>
+      <a href=index.html><img src="assets/dance.gif" width="55px"/></a>
+      <p>click big guy to return</p>
+    </div></center>
+  </header>
+
+  <main>
+    <h3>caramelldansen.mp3</h3>
+    <audio controls style="width:100%"><source src="assets/Caramelldansen.mp3" type="audio/mpeg"></audio>
+
+    <h3>elektronomia.mp3</h3>
+    <audio controls style="width:100%"><source src="assets/elektronomia.mp3" type="audio/mpeg"></audio>
+
+    <h3>stal.mp3</h3>
+    <audio controls style="width:100%"><source src="assets/stal.mp3" type="audio/wav"></audio>
+
+
+
+          <div class="box ms-tile" data-content="!!" data-action="show-avatar"></div>
+
+          <div class="box ms-tile" data-content="!!" data-action="show-sketch"></div>
+
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="js/sketch.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -11,8 +11,11 @@ let upgradeCost = 5
 let autoClickerCost = 10
 let jump;
 let hooray;
-let cookieImg;       // default image
-let cookieJumpImg;   // jump image
+let cookieImg;
+let cookieJumpImg;
+
+// 🔴 NEW: game starts OFF until window opens
+window.cookieGameActive = false;
 
 function preload() {
     jump = loadSound('assets/jump.mp3');
@@ -46,6 +49,9 @@ function windowResized() {
 }
 
 function draw() {
+    if (!window.cookieGameActive) return;  // ⛔ do nothing if game is "off"
+
+
 	if(frameCount % 60 == 0) {
 		totalCookies += clicksPerSecond
 	}
@@ -121,6 +127,8 @@ function draw() {
 }
 
 function mousePressed() {
+    if (!window.cookieGameActive) return;  // ⛔ ignore clicks when off
+
 	const cx = width / 2
 	const cy = height / 2
 
@@ -192,11 +200,14 @@ function mousePressed() {
 		autoClickerCost = parseInt(autoClickerCost * 1.2)
 		if (hooray) {
             hooray.play()
+			hooray.setVolume(0.2)
         }
 	}
 }
 
 function mouseReleased() {
+    if (!window.cookieGameActive) return;  // ⛔ ignore releases when off
+
 	isCookieClicked = false   // switch back to newb.png
 	isUpgradeClicked = false
 	isAutoClicked = false
