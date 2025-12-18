@@ -14,7 +14,6 @@ let hooray;
 let cookieImg;
 let cookieJumpImg;
 
-// 🔴 NEW: game starts OFF until window opens
 window.cookieGameActive = false;
 
 function preload() {
@@ -27,7 +26,7 @@ function preload() {
 // helper: get the current size of the cookie-game box
 function getCookieBoxSize() {
   const el = document.getElementById('cookie-game-box')
-  if (!el) return { w: 400, h: 400 } // fallback
+  if (!el) return { w: 400, h: 400 } 
   const r = el.getBoundingClientRect()
   const minH = 240
   return {
@@ -39,7 +38,7 @@ function getCookieBoxSize() {
 function setup() {
   const { w, h } = getCookieBoxSize()
   const canvas = createCanvas(w, h)
-  canvas.parent('cookie-game-box')  // mount inside the wide box
+  canvas.parent('cookie-game-box')  
 }
 
 // keep canvas in sync when layout/browser size changes
@@ -49,8 +48,7 @@ function windowResized() {
 }
 
 function draw() {
-    if (!window.cookieGameActive) return;  // ⛔ do nothing if game is "off"
-
+    if (!window.cookieGameActive) return;  
 
 	if(frameCount % 60 == 0) {
 		totalCookies += clicksPerSecond
@@ -62,22 +60,22 @@ function draw() {
 	textAlign(CENTER, CENTER)
 
 	// ---- EASY-TO-TUNE TEXT POSITIONS ----
-	// adjust these 3 numbers to move HUD text up/down
-	const totalY      = 0.10 * height  // was 0.125 * height (move a bit up)
-	const perClickY   = 0.18 * height  // vertical spacing between lines
+
+	const totalY      = 0.10 * height  
+	const perClickY   = 0.18 * height  
 	const perSecondY  = 0.26 * height
 
 	text('Total: ' + totalCookies,    width/2, totalY)
 	text(cookiesPerClick + ' per click', width/2, perClickY)
 	text(clicksPerSecond + ' per sec',   width/2, perSecondY)
 
-	// --- image button instead of circle ---
+	// image
 	const cx = width / 2
 	const cy = height / 2
 	let imgW = 120
 	let imgH = 120
 
-	// choose which image to show
+	
 	let currentImg = isCookieClicked && cookieJumpImg ? cookieJumpImg : cookieImg
 
 	if (currentImg) {
@@ -91,7 +89,6 @@ function draw() {
 		imageMode(CENTER)
 		image(currentImg, cx, cy, imgW, imgH)
 	} else {
-		// fallback: old circle
 		if(isCookieClicked) {
 			fill(255, 0, 0)
 		} else {
@@ -100,7 +97,6 @@ function draw() {
 		ellipse(cx, cy, 100)
 	}
 
-	// bottom buttons use proportional height (no fixed 300px)
 	const controlTop = height * 0.7
 	const controlHeight = height - controlTop
 
@@ -120,15 +116,14 @@ function draw() {
 
 	fill(0)
 
-	// you can also adjust these label heights by changing the 0.5 multiplier
+	
 	const buttonLabelY = controlTop + controlHeight * 0.5
 	text(upgradeCost + ' upgrade',       0.25*width, buttonLabelY)
 	text(autoClickerCost + ' autoclicker', 0.75*width, buttonLabelY)
 }
 
 function mousePressed() {
-    if (!window.cookieGameActive) return;  // ⛔ ignore clicks when off
-
+    if (!window.cookieGameActive) return;  
 	const cx = width / 2
 	const cy = height / 2
 
@@ -154,12 +149,12 @@ function mousePressed() {
 		}
 	}
 
-	// button area (same as in draw)
+
 	const controlTop = height * 0.7
 	const controlHeight = height - controlTop
 	const controlBottom = controlTop + controlHeight
 
-	// ensure click is inside the canvas button strip
+
 	const insideButtonStrip =
 		mouseY >= controlTop &&
 		mouseY <= controlBottom &&
@@ -167,13 +162,14 @@ function mousePressed() {
 		mouseX <= width
 
 	if(clickedCookie) {
-		isCookieClicked = true       // will show newbJump.png
+		isCookieClicked = true      
 		totalCookies += cookiesPerClick
         if (jump) {
             jump.play()
         }
 	}
-	// UPGRADE BUTTON: left half, within button strip
+
+	// UPGRADE BUTTON
 	else if(
 		insideButtonStrip &&
 		mouseX < width/2 &&
@@ -188,7 +184,7 @@ function mousePressed() {
 			hooray.setVolume(0.2)
         }
 	}
-	// AUTOCLICKER BUTTON: right half, within button strip (now also using insideButtonStrip)
+	// AUTOCLICKER BUTTON
 	else if(
 		insideButtonStrip &&
 		mouseX >= width/2 &&
@@ -206,9 +202,8 @@ function mousePressed() {
 }
 
 function mouseReleased() {
-    if (!window.cookieGameActive) return;  // ⛔ ignore releases when off
-
-	isCookieClicked = false   // switch back to newb.png
+    if (!window.cookieGameActive) return;  
+	isCookieClicked = false  
 	isUpgradeClicked = false
 	isAutoClicked = false
 }
